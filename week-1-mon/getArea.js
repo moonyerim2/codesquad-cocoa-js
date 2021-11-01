@@ -33,5 +33,4 @@ function getArea(figure) {
         default:
             break;
     }
-    console.log(arguments);
 }
