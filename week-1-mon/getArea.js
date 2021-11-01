@@ -35,8 +35,3 @@ function getArea(figure) {
     }
     console.log(arguments);
 }
-
-console.log(getArea("circle", 2, 3));
-console.log(getArea("circle", 10));
-console.log(getArea("rect", 10, 15));
-console.log(getArea("trapezoid", 10, 15, 12));
