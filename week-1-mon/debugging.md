@@ -25,6 +25,45 @@
 
 > [완전 초보자를 위한 코드 디버깅 - Visual Studio (Windows)](https://docs.microsoft.com/ko-kr/visualstudio/debugger/debugging-absolute-beginners?view=vs-2019&tabs=csharp)
 
+# 📌 디버깅 개념
+## breakpoints
+- 중단점
+- `debugger`이나 크롬에서는 `코드라인 왼쪽클릭`, `f9`등의 방법으로 설정할 수 있다.
+- 디버깅하면 중단점에서 진행이 멈추게 되고 멈춘 상황의 local, global various, call stack등을 확일할 수 있다.
+
+## whatch
+- 애플리케이션 내에서 변수를 관찰하기 위해 사용된다.
+- 표현식을 추가해 주고 변하는 값을 확인할 수 있다.
+
+> **ex)**
+```javascript
+function fibonacci(n) {
+  if (n < 2) return n;
+  const result = fibonacci(n - 1) + fibonacci(n - 2);
+  return result;
+}
+```
+watch에 `result === 5`를 추가하면 `result===5 : false` 에서 `result === 5`가 될 때 `result===5 : true` 로 바뀐다. 원하는 변수값을 표현식에 입력해도 변수 값이 나온다. [출처](https://velog.io/@proshy/VScode-%EB%94%94%EB%B2%84%EA%B9%85-breakpoints-watch-step)
+
+> 사용법 : [[Chrome Developers]Watch variables in Sources](https://developer.chrome.com/docs/devtools/javascript/watch-variables/)
+
+## call stack
+- 어떤 함수가 현재 실행되고 있고 어떤 함수 안에서 어떤 함수가 호출되고 있는지 추적할 수 있게 해준다.
+
+## Step over / Step into / Step out
+- continue (resume)
+다음 `breakpoint`로 이동
+
+- Step over
+함수 단위로 실행
+
+- Step into
+라인 단위로 실행
+
+- Step out
+현재 함수의 나머지 부분을 실행, 리턴에서 멈춤
+`step into`로 함수로 들어간 뒤 바로 return으로 넘어가고싶을 때 사용하면 유용
+
 # 📒 node.js 환경에서 디버깅 모드 실행하기
 
 ## 크롬 개발자도구 사용하기
