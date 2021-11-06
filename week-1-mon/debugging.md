@@ -31,7 +31,7 @@
 - `debugger`이나 크롬에서는 `코드라인 왼쪽클릭`, `f9`등의 방법으로 설정할 수 있다.
 - 디버깅하면 중단점에서 진행이 멈추게 되고 멈춘 상황의 local, global various, call stack등을 확일할 수 있다.
 
-## whatch
+## watch
 - 애플리케이션 내에서 변수를 관찰하기 위해 사용된다.
 - 표현식을 추가해 주고 변하는 값을 확인할 수 있다.
 
@@ -45,7 +45,13 @@ function fibonacci(n) {
 ```
 watch에 `result === 5`를 추가하면 `result===5 : false` 에서 `result === 5`가 될 때 `result===5 : true` 로 바뀐다. 원하는 변수값을 표현식에 입력해도 변수 값이 나온다. [출처](https://velog.io/@proshy/VScode-%EB%94%94%EB%B2%84%EA%B9%85-breakpoints-watch-step)
 
-> 사용법 : [[Chrome Developers]Watch variables in Sources](https://developer.chrome.com/docs/devtools/javascript/watch-variables/)
+**watch 사용법**
+- 크롬
+[[Chrome Developers]Watch variables in Sources](https://developer.chrome.com/docs/devtools/javascript/watch-variables/)
+
+
+- vs code
+![](https://images.velog.io/images/moon-yerim/post/a97a9e7d-5f28-4db9-8ed5-1f699e321d70/%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB-%E1%84%80%E1%85%B5%E1%84%85%E1%85%A9%E1%86%A8-2021-11-06-%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE-11.43.35.gif)
 
 ## call stack
 - 어떤 함수가 현재 실행되고 있고 어떤 함수 안에서 어떤 함수가 호출되고 있는지 추적할 수 있게 해준다.
@@ -116,7 +122,7 @@ debug>
 ```
 
 커맨드 라인에서 명령어를 통해 디버깅을 할 수 있다.
-
+> **실행 명령어**
 - `cont`, `c` - 계속 실행한다.
 - `next`, `n` - 다음 단계로 이동
 - `step`, `s` - 단계 안으로 이동
@@ -127,3 +133,20 @@ debug>
 `debugger;` 을 입력하면 브레이크 포인트로 사용할 수 있다. cont입력 시 중단점에서 걸리게 된다.
 
 > [Node.js의 v8-inpector 디버깅 :: Outsider's Dev Story](https://blog.outsider.ne.kr/1307)
+
+## vscode에서 디버깅 실행하기
+### `실행 > 디버깅 시작 / F5`
+디버깅을 실행하고 launch.json 환경 파일이 없다면 화면 상단에 환경 선택 창이 뜬다. 목록에서 Node.js를 선택해주면 실행된다.
+
+- `launch.json`파일 만들기
+이 부분은 f5를 누르면 실행되는데 왜 사용하는지 아직 잘 모르겠다.
+
+> **실행 단축키**
+  -  계속/일시중지 : F5
+  -  단위실행 : F10
+  -  단계정보 : F11
+  -  단계출력 : Shift + F11
+  -  다시시작 : Ctrl + Shift + F5
+  -  중지 : Shift + F5
+
+> [Visual Studio Code(VSCode) NodeJS 디버그 모드 사용하기](https://notstop.co.kr/927/)
