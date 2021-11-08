@@ -1,11 +1,13 @@
 const calculate = (n) => {
     let result = 1;
+    let arr = [];
 
     for (let i = 1; i <= n; i++) {
         result *= i;
+        arr.push(result);
     }
 
-    return result;
+    return arr;
 };
 
 const recursionCalculate = (n) => {
@@ -43,7 +45,6 @@ const highOrderFilterId = (peoples) => {
         peoples[i] = name.replace(/[0-9]/g, "");
     });
     return peoples;
-    //map은 원래 배열은 수정하지 않고 새로운 배열을 반환 함
 };
 
 const getAvg = (grades) => {
@@ -66,7 +67,6 @@ const getAvg = (grades) => {
 const parseNumKey = (data) => {
     const result = [];
     const values = Object.values(data);
-
     values.forEach((value, i) => {
         const keys = values.map((value) => Object.keys(value));
 
@@ -76,9 +76,15 @@ const parseNumKey = (data) => {
             }
         });
     });
-
     return result;
 };
+
+// const myReduce = (arr, callback, initialValue) => {
+//     let result = initialValue;
+
+//     if (initialValue === undefined) initialValue = arr[0];
+//     return result;
+// };
 
 const peoples = ["crong!@#", "honux5", "sarah#", "hea3d", "zello", "5lucas"];
 
