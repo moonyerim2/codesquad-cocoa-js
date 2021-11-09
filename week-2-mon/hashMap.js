@@ -108,4 +108,3 @@ HashMap.prototype.clear = function () {
         this.values[i] = null;
     }
 };
-
