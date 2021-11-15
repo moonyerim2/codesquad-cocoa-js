@@ -77,15 +77,15 @@ const run = () => {
         const curArr = prevArr;
 
         for (i in array) {
-            //console.log("-------------------------");
-            //console.log("prevArr", prevArr);
-            //console.log("array[i]", array[i]);
+            console.log("-------------------------");
+            console.log("prevArr", prevArr);
+            console.log("array[i]", array[i]);
 
             const currentNode = toJsonObj(array[i]);
-            //console.log("currentNode", currentNode);
+            console.log("currentNode", currentNode);
 
             curArr.push(currentNode);
-            //console.log("curArr", curArr);
+            console.log("curArr", curArr);
 
             if (Array.isArray(array[i])) {
                 getNodes(curArr, array[i]);
@@ -113,23 +113,25 @@ const run = () => {
             //타입이 array인걸 만난다면
             if (currentNode.type === "array") {
                 //그 array전까지의 인덱스들을 slice해서
-                console.log(i);
+
+                //console.log(i);
                 const childNodes = restNodes.slice(i + 1);
-                console.log("childNodes", childNodes);
+                //console.log("childNodes", childNodes);
 
                 //그 array.child에 푸시
                 currentNode.child.push(childNodes);
-                console.log("currentNode", JSON.stringify(currentNode));
+                //console.log("currentNode", JSON.stringify(currentNode));
 
                 //slice당한 요소들은 nodes에서 제거해주기
                 restNodes = nodes.slice(0, i + 1);
-                console.log("restNodes\n", restNodes);
+                //console.log("restNodes\n", restNodes);
             }
             i--;
         }
 
         resultJson.child = restNodes;
-        console.log(JSON.stringify(resultJson));
+
+        console.log(JSON.stringify(resultJson, null, 4));
     };
 
     console.log(makeJsonformat(data));
