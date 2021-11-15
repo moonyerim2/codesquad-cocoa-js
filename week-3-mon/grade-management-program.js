@@ -38,7 +38,7 @@ class Statistics {
         return Number(((data - mean) / standardDeviation).toFixed(2));
     }
 
-    zTable() {
+    static zTable() {
         return {
             z: [0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09],
             0: [0.5, 0.504, 0.508, 0.512, 0.516, 0.5199, 0.5239, 0.5279, 0.5319, 0.5359],
@@ -76,8 +76,8 @@ class Statistics {
             3.2: [0.9993, 0.9993, 0.9994, 0.9994, 0.9994, 0.9994, 0.9994, 0.9995, 0.9995, 0.9995],
             3.3: [0.9995, 0.9995, 0.9995, 0.9996, 0.9996, 0.9996, 0.9996, 0.9996, 0.9996, 0.9997],
             3.4: [0.9997, 0.9997, 0.9997, 0.9997, 0.9997, 0.9997, 0.9997, 0.9997, 0.9997, 0.9998],
-            3.5: [0.99977, 0.99978, 0.99978, 0.99979, , 0.9998, 0.99981, 0.99981, 0.99982, 0.99983, 0.99983],
-            3.6: [0.99984, 0.99985, 0.99985, 0.99986, 0.99986, 0.99987, , 0.99987, 0.99988, 0.99988, 0.99989],
+            3.5: [0.99977, 0.99978, 0.99978, 0.99979, 0.9998, 0.99981, 0.99981, 0.99982, 0.99983, 0.99983],
+            3.6: [0.99984, 0.99985, 0.99985, 0.99986, 0.99986, 0.99987, 0.99987, 0.99988, 0.99988, 0.99989],
             3.7: [0.99989, 0.9999, 0.9999, 0.9999, 0.99991, 0.99991, 0.99992, 0.99992, 0.99992, 0.99992],
             3.8: [0.99993, 0.99993, 0.99993, 0.99994, 0.99994, 0.99994, 0.99994, 0.99995, 0.99995, 0.99995],
             3.9: [0.99995, 0.99995, 0.99996, 0.99996, 0.99996, 0.99996, 0.99996, 0.99996, 0.99997, 0.99997],
@@ -85,9 +85,28 @@ class Statistics {
         };
     }
 
-    getProbability(x, y) {
-        const z1 = grades.getNormalizedData(x);
-        const z2 = grades.getNormalizedData(y);
+    getProbability(x) {
+        const zTable = Statistics.zTable();
+
+        //-1.03
+        const z = Math.abs(this.getNormalizedData(x)); //1.03
+        const rowName = Number(z.toFixed(1)); //1.0
+        const columnName = Number((z - rowName).toFixed(2)); //0.03
+
+        let row = 0;
+        let colunm = 0;
+
+        const rows = Object.keys(zTable);
+        for (let i in rows) {
+            if (Number(rows[i]) === rowName) row = i;
+        }
+
+        const colunms = zTable.z;
+        for (let j in colunms) {
+            if (colunms[j] === columnName) colunm = j;
+        }
+
+        return zTable[row][colunm];
     }
 }
 
@@ -103,9 +122,7 @@ const App = () => {
     const standardDeviation = grades.getStandardDeviation();
     console.log("standardDeviation", standardDeviation);
 
-    const z1 = grades.getNormalizedData(70);
-    const z2 = grades.getNormalizedData(80);
-    console.log(z1, z2);
+    console.log(grades.getProbability(70, 80));
 };
 
 App();
