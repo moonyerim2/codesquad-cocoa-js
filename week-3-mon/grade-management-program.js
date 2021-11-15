@@ -105,7 +105,7 @@ const App = () => {
 
     const z1 = grades.getNormalizedData(70);
     const z2 = grades.getNormalizedData(80);
-    console.log(z1, z2)
+    console.log(z1, z2);
 };
 
 App();
