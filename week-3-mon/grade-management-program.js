@@ -87,26 +87,42 @@ class Statistics {
 
     getProbability(x) {
         const zTable = Statistics.zTable();
+        const z = this.getNormalizedData(x);
 
         //-1.03
-        const z = Math.abs(this.getNormalizedData(x)); //1.03
-        const rowName = Number(z.toFixed(1)); //1.0
-        const columnName = Number((z - rowName).toFixed(2)); //0.03
+        const zAbs = Math.abs(z); //1.03
+        const rowName = Mathmatics.floor(zAbs, 1); //1.0
+        const columnName = Number((zAbs - rowName).toFixed(2)); //0.03
 
         let row = 0;
-        let colunm = 0;
+        let column = 0;
 
         const rows = Object.keys(zTable);
         for (let i in rows) {
-            if (Number(rows[i]) === rowName) row = i;
+            if (Number(rows[i]) === rowName) row = rows[i];
         }
 
-        const colunms = zTable.z;
-        for (let j in colunms) {
-            if (colunms[j] === columnName) colunm = j;
+        const columns = zTable.z;
+        for (let j in columns) {
+            if (columns[j] === columnName) column = j;
         }
 
-        return zTable[row][colunm];
+        if (Math.sign(z) === -1) return 1 - zTable[row][column];
+
+        return zTable[row][column];
+    }
+
+    getProbabilityBetweenRange(x, y) {
+        const result = (this.getProbability(y) - this.getProbability(x)) * 100; 
+        return Mathmatics.floor(result, 2);
+    }
+}
+
+class Mathmatics {
+    static floor(x, digits) {
+        const temp1 = x * 10 ** digits;
+        const temp2 = Math.floor(temp1);
+        return temp2 / 10 ** digits;
     }
 }
 
@@ -122,7 +138,8 @@ const App = () => {
     const standardDeviation = grades.getStandardDeviation();
     console.log("standardDeviation", standardDeviation);
 
-    console.log(grades.getProbability(70, 80));
+    const probability = grades.getProbabilityBetweenRange(70, 80);
+    console.log("probability", probability);
 };
 
 App();
