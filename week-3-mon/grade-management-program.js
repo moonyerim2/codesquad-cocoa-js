@@ -38,7 +38,7 @@ class Statistics {
         return Number(((data - mean) / standardDeviation).toFixed(2));
     }
 
-    static zTable() {
+    zTable() {
         return {
             z: [0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09],
             0: [0.5, 0.504, 0.508, 0.512, 0.516, 0.5199, 0.5239, 0.5279, 0.5319, 0.5359],
@@ -86,7 +86,7 @@ class Statistics {
     }
 
     getProbability(x) {
-        const zTable = Statistics.zTable();
+        const zTable = this.zTable();
         const z = this.getNormalizedData(x);
 
         //-1.03
