@@ -34,7 +34,7 @@ class Statistics {
 
     getNormalizedData(data) {
         const mean = this.getMean();
-        const standardDeviation = this.getStandardDeviation();
+        let standardDeviation = this.getStandardDeviation();
         return Number(((data - mean) / standardDeviation).toFixed(2));
     }
 
@@ -113,7 +113,7 @@ class Statistics {
     }
 
     getProbabilityBetweenRange(x, y) {
-        const result = (this.getProbability(y) - this.getProbability(x)) * 100; 
+        const result = (this.getProbability(y) - this.getProbability(x)) * 100;
         return Mathmatics.floor(result, 2);
     }
 }
@@ -128,6 +128,8 @@ class Mathmatics {
 
 const App = () => {
     const dataset = [89.23, 82.03, 71.56, 78.82, 85.05, 84.44, 67.53, 71.7, 77.97, 73.77, 84.25, 67.01, 73.78, 64.19, 89.89, 90.32, 73.21, 75.35, 83.22, 74.01];
+    //const dataset = [ 67.01, 67.01, 67.01, 67.01, 67.01, 67.01];
+    //const dataset = [ 70, 70, 70, 70, 70, 70, 70];
 
     const grades = new Statistics(dataset);
     console.log("grades", grades);
