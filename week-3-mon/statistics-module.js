@@ -1,7 +1,7 @@
-import { Mathmatics } from "./mathmatics-module.js";
-import { ZTable } from "./z-table.js";
+const Mathmatics = require("./mathmatics-module");
+const ZTable = require("./z-table");
 
-export class Statistics {
+module.exports = class Statistics {
     constructor(dataset) {
         this.dataset = dataset;
         this.length = dataset.length;
@@ -65,4 +65,4 @@ export class Statistics {
         const result = (this.getProbability(y) - this.getProbability(x)) * 100;
         return Mathmatics.floor(result, 2);
     }
-}
+};
