@@ -1,0 +1,77 @@
+@charset "utf-8";
+.done-task {
+    text-decoration : line-through;
+}
+
+.header-style {
+    padding: 20px 80px 20px;
+    font-size: 20px;
+    background-color: #000;
+    color: #e3e3e3;
+}
+
+.main-container {
+    margin: 0 auto;
+    padding: 70px;
+    max-width: 600px;
+}
+
+.title-style {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.border-style {
+    border:1px solid #9C9997;
+    border-radius: 5px;
+}
+
+.input-field {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#input-new-task {
+    width: 450px;
+}
+
+.input-style {
+    padding: 5px;
+    margin-right: 15px;
+    font-size: 15px;
+    outline: transparent;
+}
+
+#new-task-submit-button {
+    padding: 5px;
+    width: 45px;
+    color: #fff;
+    font-size: 15px;
+    border: 0px;
+    background-color: #9B52FA;
+}
+
+.task-item {
+    display: flex;
+    position: relative;
+    padding: 20px;
+    border-top: 1px solid #9C9997;
+}
+
+.text-align {
+    padding-top: 3px;
+    margin-left: 30px;
+}
+
+.delete-btn-style{
+    position: absolute;
+    right: 20px;
+    background-color: transparent;
+    border: 0px;
+    padding: 0;
+}
+
+#task-list :first-child {
+    border-top: none;
+}

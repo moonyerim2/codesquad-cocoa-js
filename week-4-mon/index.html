@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="./src/css/reset.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header-style">ToDo List</header>
+        <main class="main-container">
+            <form id="task-form">
+                <h1 class="title-style">ToDo List</h1>
+                <div class="input-field">
+                    <label for="input-new-task" hidden></label>
+                    <input type="text" id="input-new-task" class="input-style border-style" placeholder="New Task"/>
+                    <button type="button" name="submit" id="new-task-submit-button" class="border-style">Add</button>
+                </div>
+            </form>
+            <ul id="task-list" class="border-style">
+            </ul>
+        </main>
+    </div>
+    <script type="module" src="./src/js/index.js"></script>
+</body>
+</html>
