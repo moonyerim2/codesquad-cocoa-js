@@ -65,7 +65,7 @@ const App = () => {
         eraseOutput();
         recordMouseMoveData(mouseMoveData, key);
       }
-      console.log(renderOutput(mouseMoveData));
+      renderOutput(mouseMoveData);
     }, 500);
   });
 
@@ -75,6 +75,7 @@ const App = () => {
     } else {
       addHideListClass();
       eraseOutput();
+      mouseMoveData = {};
     }
   });
 };
