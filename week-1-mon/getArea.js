@@ -1,18 +1,3 @@
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.on('line', function(line) {
-  console.log(line); //입력 값을 처리할 callback 내용 기제
-
-  rl.close(); //callback 종료
-}).on("close", function() {
-  process.exit(); // 출력과 관련된 내용 기재 (console.log같은거..)
-});
-
 const App = () => {
     const figureLog = [];
     const resultLog = [];
