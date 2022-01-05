@@ -16,4 +16,4 @@
 - OOP with ES Classes
 - Smart Drop Down Menu
 ## 5주
-- 개인 프로젝트
+- [개인 프로젝트](https://github.com/moonyerim2/my-pet-gallery)
